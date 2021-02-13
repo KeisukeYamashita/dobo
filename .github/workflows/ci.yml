@@ -1,10 +1,6 @@
 name: CI
 
-on:
-  push:
-    branches: [ master ]
-  pull_request:
-    branches: [ master ]
+on: [pull_request]
 
 jobs:
   test:
@@ -13,9 +9,9 @@ jobs:
     - name: Check out source
       uses: actions/checkout@v2
     - name: Get version
-      run: ./gibo version
+      run: ./dobo version
     - name: Shellcheck
-      run: shellcheck ./gibo tests/test.sh
+      run: shellcheck ./dobo tests/test.sh
     - name: Run test
       run: ./tests/test.sh
 
@@ -24,4 +20,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Get version
-        run: .\gibo.bat version
+        run: .\dobo.bat version

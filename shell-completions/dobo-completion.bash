@@ -1,9 +1,9 @@
-# Bash completion for gibo
+# Bash completion for dobo
 #
 # INSTALLATION
 #
-# First install gibo from
-# https://github.com/simonwhitaker/gitignore-boilerplates
+# First install dobo from
+# https://github.com/KeisukeYamashita/dobo
 #
 # Then copy this file into a bash_completion.d folder:
 #
@@ -11,16 +11,17 @@
 #     /usr/local/etc/bash_completion.d
 #     ~/bash_completion.d
 #
-# or copy it somewhere (e.g. ~/.gibo-completion.bash) and put the
+# or copy it somewhere (e.g. ~/.dobo-completion.bash) and put the
 # following in your .bashrc:
 #
-#     source ~/.gibo-completion.bash
+#     source ~/.dobo-completion.bash
 #
 # CREDITS
 #
-# Written by Simon Whitaker <sw@netcetera.org>
+# Source codes derived from Simon Whitaker's <sw@netcetera.org> gitignore-boilerplates project
+# https://github.com/simonwhitaker/gitignore-boilerplates
 
-_gibo()
+_dobo()
 {
     local cur prev opts
     cur="${COMP_WORDS[COMP_CWORD]}"
@@ -33,7 +34,7 @@ _gibo()
             subcommand="${COMP_WORDS[1]}"
             case $subcommand in
                 dump)
-                    opts=$( find ${GIBO_BOILERPLATES:-"$HOME/.gitignore-boilerplates"} -name "*.gitignore" -exec basename \{\} .gitignore \; )
+                    opts=$( find ${DOBO_BOILERPLATES:-"$HOME/.dockerignore-boilerplates"} -name "*.dockerignore" -exec basename \{\} .dockerignore \; )
                     COMPREPLY=( $(compgen -W "${opts}" -- ${cur}) )
                     ;;
                 *)
@@ -44,4 +45,4 @@ _gibo()
     esac
 }
 
-complete -F _gibo gibo
+complete -F _dobo dobo

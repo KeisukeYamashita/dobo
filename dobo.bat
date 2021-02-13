@@ -2,33 +2,29 @@
 @setlocal EnableDelayedExpansion
 @echo off
 
-rem Script for easily accessing gitignore boilerplates from
-rem https://github.com/github/gitignore
+rem Script for easily accessing dockerignore boilerplates from
+rem https://github.com/KeisukeYamashita/dobo
 rem
 rem Change log
-rem v1.0    1-May-2012  First public release
-rem v1.0.01 16-Aug-2014 Added batch file for DOS by Kody Brown ^<thewizard@wasatchwizard.com^>
-rem v2.0.00 11-Jun-2018 Updated to v2; subcommand model by Simon Whitaker ^<sw@netcetera.org^>
-rem v2.0.01 13-Jun-2018 Added optional parameter for list subcommand, added search subcommand, added support for GIBO_BOILERPLATES by Kody Brown ^<thewizard@wasatchwizard.com^>
+rem v1.0    15-Feb-2021  First public release
 
 goto :setup
 
-
 :version
-    echo %basename% 2.2 by Simon Whitaker ^<sw@netcetera.org^>
-    echo https://github.com/simonwhitaker/gibo
+    echo %basename% 1.0 by KeisukeYamashita ^<19yamashita15@gmail.com^>
+    echo https://github.com/KeisukeYamashita/dobo
     goto :eof
 
 :usage
     call :version
     echo.
-    echo Fetches gitignore boilerplates from github.com/github/gitignore
+    echo Fetches dockerignore boilerplates from github.com/KeisukeYamashita/dockerignore
     echo.
     echo Usage:
     echo     %basename% [command]
     echo.
     echo Example:
-    echo     %basename% dump Python NotepadPP ^>^> .gitignore
+    echo     %basename% dump Python NotepadPP ^>^> .dockerignore
     echo.
     echo Options:
     echo     dump expr...  Dump boilerplate(s) to stdout
@@ -51,12 +47,12 @@ goto :setup
 
     set "dumping="
 
-    set "remote_repo=https://github.com/github/gitignore.git"
+    set "remote_repo=https://github.com/KeisukeYamashita/dockerignore.git"
 
-    rem Allow using the `GIBO_BOILERPLATES` system envar
+    rem Allow using the `DOBO_BOILERPLATES` system envar
     rem for specifying the boilerplates directory.
-    if defined GIBO_BOILERPLATES set "local_repo=%GIBO_BOILERPLATES%"
-    if not defined GIBO_BOILERPLATES set "local_repo=%AppData%\.gitignore-boilerplates"
+    if defined DOBO_BOILERPLATES set "local_repo=%DOBO_BOILERPLATES%"
+    if not defined DOBO_BOILERPLATES set "local_repo=%AppData%\.dockerignore-boilerplates"
 
     rem No args passed in, so show usage.
     if "%~1"=="" call :usage && goto :end
@@ -96,16 +92,16 @@ goto :setup
     echo Invalid argument: %~1
     echo Did you mean:
 
-    rem Is there a .gitignore file?
+    rem Is there a .dockerignore file?
     set "_foundfile="
-    if exist "%local_repo%\%~1.gitignore" set "_foundfile=yes"
-    if exist "%local_repo%\Global\%~1.gitignore" set "_foundfile=yes"
+    if exist "%local_repo%\%~1.dockerignore" set "_foundfile=yes"
+    if exist "%local_repo%\Global\%~1.dockerignore" set "_foundfile=yes"
     if defined _foundfile (
         echo     `%basename% dump %*`
         echo     `%basename% list %*`
     )
 
-    rem Did the user mean to search within .gitignore files?
+    rem Did the user mean to search within .dockerignore files?
     echo     `%basename% search %*`
 
     endlocal && exit /B 1
@@ -126,14 +122,14 @@ goto :setup
 
     echo === Languages ===
     echo.
-    for /f %%G in ('dir /b /on "%local_repo%\*%~1*.gitignore"') do (
+    for /f %%G in ('dir /b /on "%local_repo%\*%~1*.dockerignore"') do (
         echo %%~nG
     )
 
     echo.
     echo === Global ===
     echo.
-    for /f %%G in ('dir /b /on "%local_repo%\Global\*%~1*.gitignore"') do (
+    for /f %%G in ('dir /b /on "%local_repo%\Global\*%~1*.dockerignore"') do (
         echo %%~nG
     )
 
@@ -161,7 +157,7 @@ goto :setup
     rem              Specifies a file or files to search.
 
     pushd "%local_repo%"
-    findstr /S /R /I /N /P /A:03 "%~1" *.gitignore
+    findstr /S /R /I /N /P /A:03 "%~1" *.dockerignore
     popd
 
     goto :eof
@@ -183,8 +179,8 @@ goto :setup
 :dump
     call :init --silently
 
-    set "language_file=%local_repo%\%~1.gitignore"
-    set "global_file=%local_repo%\Global\%~1.gitignore"
+    set "language_file=%local_repo%\%~1.dockerignore"
+    set "global_file=%local_repo%\Global\%~1.dockerignore"
 
     if exist "%language_file%" (
         echo ### %~1

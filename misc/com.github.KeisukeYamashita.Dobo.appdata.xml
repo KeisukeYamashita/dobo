@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="console-application">
+  <id>com.github.KeisukeYamashita.Dobo</id>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Unlicense</project_license>
+  <name>dobo</name>
+  <summary>A shell script for easily accessing dockerignore boilerplates</summary>
+  <description>
+    <p>
+      dobo (short for .dockerignore boilerplates) is a shell script to help you easily
+      access .dockerignore boilerplates from github.com/KeisukeYamashita/dockerignore.
+    </p>
+  </description>
+  <url type="homepage">https://github.com/KeisukeYamashita/dobo</url>
+  <content_rating type="oars-1.0" />
+  <update_contact>19yamashita15@gmail.com</update_contact>
+  <provides>
+    <binary>dobo</binary>
+  </provides>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://raw.githubusercontent.com/KeisukeYamashita/dobo/master/misc/screenshot.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release type="stable" date="2019-07-20" version="2.2.4" />
+  </releases>
+</component>
