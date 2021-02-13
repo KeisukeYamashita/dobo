@@ -17,8 +17,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.REGISTRY_GITHUB_TOKEN }}
       - name: Build
-        run: docker build . -t ghcr.io/KeisukeYamashita/dobo 
+        run: docker build . -t ghcr.io/keisukeyamashita/dobo 
       - name: Push
-        run: docker push ghcr.io/KeisukeYamashita/dobo
+        run: docker push ghcr.io/keisukeyamashita/dobo
         env:
           GITHUB_TOKEN: ${{ secrets.REGISTRY_GITHUB_TOKEN }}
