@@ -12,6 +12,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
+      - name: Docker login
         run: echo $GITHUB_TOKEN | docker login ghcr.io -u USERNAME --password-stdin
         env:
           GITHUB_TOKEN: ${{ secrets.REGISTRY_GITHUB_TOKEN }}
