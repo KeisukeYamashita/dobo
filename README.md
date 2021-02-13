@@ -86,7 +86,7 @@ A good directory to put the file is `C:\Users\<Your User>\bin` and add that dire
 Just type the following command.
 
 ```console
-$ docker run --rm KeiskeYamashita/dobo
+$ docker run --rm ghcr.io/KeiskeYamashita/dobo dump Rails > .dockerignore
 ```
 
 ## Tab completion in bash, zsh and fish
