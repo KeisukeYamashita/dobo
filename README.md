@@ -83,7 +83,7 @@ A good directory to put the file is `C:\Users\<Your User>\bin` and add that dire
 
 ### Installation on Docker
 
-Just type the following command.
+Just type the following command. The [dobo Docker image](https://github.com/users/KeisukeYamashita/packages/container/package/dobo) is distributed by GitHub Container Registry.
 
 ```console
 $ docker run --rm ghcr.io/KeiskeYamashita/dobo dump Rails > .dockerignore
