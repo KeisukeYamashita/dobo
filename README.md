@@ -119,15 +119,6 @@ Alternatively, you can use `dobo-completion.zsh` as an [oh-my-zsh](https://githu
 
 Copy `dobo.fish` to somewhere in your `$fish_complete_path`.
 
-## Use dobo to generate .hgignore files
-
-The `glob` .hgignore syntax for Mercurial is compatible with dockerignore syntax. This means that you can use dobo to generate .hgignore files, as long as the .hgignore files use the `glob` syntax:
-
-```console
-$ echo 'syntax: glob' > .hgignore
-$ dobo dump Python TextMate >> .hgignore
-```
-
 ## Credits
 
 This repository was forked from [simonwhitaker/gibo](https://github.com/simonwhitaker/gibo) and derived almost all the source codes. Thank you [@simonwhitaker](https://github.com/simonwhitaker) for working on this amazing product.
