@@ -2,7 +2,7 @@
 
 ![CI](https://github.com/KeiskeYamashita/dobo/workflows/CI/badge.svg)
 
-**dobo** (short for dockerignore boilerplates) is a shell script to help you easily access dockerignore boilerplates from [github.com/KeisukeYamashita/dockerignore](https://github.com/KeisukeYamashita/dockerignore).
+**dobo** (short for dockerignore boilerplates) is a shell script to help you easily access dockerignore boilerplates from [KeisukeYamashita/dockerignore](https://github.com/KeisukeYamashita/dockerignore).
 
 ## Typical usage
 
